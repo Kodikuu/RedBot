@@ -1,5 +1,5 @@
 from discord.ext import commands
-import util
+import utilities
 import checks
 
 
@@ -8,9 +8,9 @@ class DiscordCog(commands.Cog, name="Role Assignment"):
         self.bot = bot
 
     async def _work(self, ctx, rolename):
-        role = await util.get_role_by_name(ctx, rolename)
+        role = await utilities.get_role_by_name(ctx, rolename)
         user = ctx.author
-        if await util.toggle_role(user, role):
+        if await utilities.toggle_role(user, role):
             await ctx.send(f"{user.display_name} has been added to the {role} role.")
         else:
             await ctx.send(f"{user.display_name} has been removed from the {role} role.")
