@@ -68,7 +68,6 @@ def init(prefix=COMMAND_PREFIX,
         emb.set_author(name=message.author.name, icon_url=message.author.avatar_url)
         await channel.send("Deleted/Missing Message", embed=emb)
 
-
     # Register cogs (bot modules)
     for cog in COGS:
         bot.add_cog(cog(bot))
