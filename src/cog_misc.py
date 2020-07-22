@@ -24,11 +24,21 @@ class DiscordCog(commands.Cog, name="Misc"):
     @commands.check(checks.chan_commands)
     async def roll(self, ctx, args=""):
         dice = args.split("d")
-        if len(dice) != 2:
-            await ctx.send(f"'{args}'' doesn't look like a dice roll to me...'")
+
+        if args.lower() == "adb":
+            await ctx.send("Don't get smart with me. Replace A and B with positive integers.")
+
+        elif args.lower() == "d":
+            await ctx.send("I don't want the d...")
+
+        elif args.lower() == "a":
+            await ctx.send("B, C, D, E, F... Wait, this isn't preschool!")
+
+        elif len(dice) != 2:
+            await ctx.send(f"'{args}' doesn't look like a dice roll to me..." + " Did you mean >help roll?"*("help" in args))
 
         elif not dice[0].isdigit() or not dice[1].isdigit():
-            await ctx.send("The format is AdB, where A and B are integers.")
+            await ctx.send("The format is AdB, where A and B are natural numbers (1, 2, 3, 4).")
 
         else:
             dice[0], dice[1] = int(dice[0]), int(dice[1])
