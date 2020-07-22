@@ -6,14 +6,14 @@ Redout game Discord's bot
 - Installation
   - Linux: `make install`
   - Windows: `pip install -r requirements.txt`
- 
- - Running normally
-   - Linux: `make run --token (token)`
-   - Windows: `python ./src/main.py --token (token)`
-  
-  - Running in debug mode (see logging in console)
-   - Linux: `make debug --token (token)`
-   - Windows: `python ./src/main.py --token (token) --debug`
+
+- Running normally
+  - Linux: `make run --token (token)`
+  - Windows: `python ./src/main.py --token (token)`
+
+- Running in debug mode (see logging in console)
+  - Linux: `make debug --token (token)`
+  - Windows: `python ./src/main.py --token (token) --debug`
  
  ### Requirements
  
