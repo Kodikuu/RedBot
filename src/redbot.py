@@ -6,11 +6,13 @@ import utilities
 
 import cog_roleassign
 import cog_misc
+import cog_weeklyevent
 
 COMMAND_PREFIX = '>'
 
 COGS = [cog_roleassign.DiscordCog,
         cog_misc.DiscordCog,
+        cog_weeklyevent.DiscordCog,
         ]
 
 
