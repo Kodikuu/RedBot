@@ -25,14 +25,12 @@ class DiscordCog(commands.Cog, name="Misc"):
     async def roll(self, ctx, args=""):
         dice = args.split("d")
 
-        if args.lower() == "adb":
-            await ctx.send("Don't get smart with me. Replace A and B with positive integers.")
+        secrets = {"adb": "Don't get smart with me. Replace A and B with positive integers.",
+                   "d": "I don't want the d...",
+                   "a": "B, C, D, E, F... Wait, this isn't preschool!", }
 
-        elif args.lower() == "d":
-            await ctx.send("I don't want the d...")
-
-        elif args.lower() == "a":
-            await ctx.send("B, C, D, E, F... Wait, this isn't preschool!")
+        if secret := args.lower() in secrets:
+            await ctx.send(secrets[secret])
 
         elif len(dice) != 2:
             await ctx.send(f"'{args}' doesn't look like a dice roll to me..." + " Did you mean >help roll?"*("help" in args))
