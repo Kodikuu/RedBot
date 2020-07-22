@@ -1,6 +1,8 @@
 from discord import ext
 import logging
 
+import utilities
+
 import cog_roleassign
 import cog_misc
 
@@ -38,6 +40,21 @@ def init(prefix=COMMAND_PREFIX,
         logger.debug(f"#{channel} - {name}: {content}")
         await bot.process_commands(message)
 
+    # Automatic "Playing Redout" assignment
+    @bot.event
+    async def on_member_update(before, member):
+        is_playing = False
+        for activity in member.activities:
+            if activity.name is None:
+                continue
+            if is_playing := "redout" in activity.name.lower():
+                break
+
+        role = await utilities.get_role_by_name(member, "Playing Redout")
+        has_role = role in member.roles
+
+        if (is_playing + has_role) == 1:
+            await utilities.toggle_role(member, role)
     # Register cogs (bot modules)
     for cog in COGS:
         bot.add_cog(cog(bot))
