@@ -2,10 +2,12 @@ from discord import ext
 import logging
 
 import cog_roleassign
+import cog_misc
 
 COMMAND_PREFIX = '>'
 
 COGS = [cog_roleassign.DiscordCog,
+        cog_misc.DiscordCog,
         ]
 
 
