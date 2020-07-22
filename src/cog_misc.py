@@ -8,6 +8,7 @@ import checks
 class DiscordCog(commands.Cog, name="Misc"):
     def __init__(self, bot):
         self.bot = bot
+        self.bot.logger.debug("Misc Command Cog loaded")
 
     @commands.command(description="Flips a coin... Or a table.", usage="[table]")
     @commands.check(checks.chan_commands)

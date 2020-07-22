@@ -6,6 +6,7 @@ import checks
 class DiscordCog(commands.Cog, name="Role Assignment"):
     def __init__(self, bot):
         self.bot = bot
+        self.bot.logger.debug("Role Assignment Cog loaded")
 
     async def _work(self, ctx, rolename):
         role = await utilities.get_role_by_name(ctx, rolename)
