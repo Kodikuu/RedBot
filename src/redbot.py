@@ -1,7 +1,12 @@
 from discord import ext
 import logging
 
+import cog_roleassign
+
 COMMAND_PREFIX = '>'
+
+COGS = [cog_roleassign.DiscordCog,
+        ]
 
 
 def init(prefix=COMMAND_PREFIX,
@@ -30,5 +35,9 @@ def init(prefix=COMMAND_PREFIX,
         content = message.content
         logger.debug(f"#{channel} - {name}: {content}")
         await bot.process_commands(message)
+
+    # Register cogs (bot modules)
+    for cog in COGS:
+        bot.add_cog(cog(bot))
 
     return bot
