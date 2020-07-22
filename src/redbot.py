@@ -1,5 +1,6 @@
-from discord import ext
+from discord import ext, Embed, Color, utils
 import logging
+from datetime import datetime
 
 import utilities
 
@@ -55,6 +56,19 @@ def init(prefix=COMMAND_PREFIX,
 
         if (is_playing + has_role) == 1:
             await utilities.toggle_role(member, role)
+
+    # Deletion log
+    @bot.event
+    async def on_message_delete(message):
+        channel = utils.get(bot.get_all_channels(), name="redbot-log")
+
+        emb = Embed(**{"description": message.content, },
+                    color=Color.red(),
+                    timestamp=datetime.now())
+        emb.set_author(name=message.author.name, icon_url=message.author.avatar_url)
+        await channel.send("Deleted/Missing Message", embed=emb)
+
+
     # Register cogs (bot modules)
     for cog in COGS:
         bot.add_cog(cog(bot))
