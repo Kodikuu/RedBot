@@ -1,4 +1,3 @@
-from discord import utils
 from discord.ext import commands
 import util
 import checks
