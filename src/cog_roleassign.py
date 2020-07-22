@@ -16,17 +16,17 @@ class DiscordCog(commands.Cog, name="Role Assignment"):
         else:
             await ctx.send(f"{user.display_name} has been removed from the {role} role.")
 
-    @commands.command()
+    @commands.command(aliases=["tt", "timeattacker"])
     @commands.check(checks.chan_assignment)
     async def tt(self, ctx):
         await self._work(ctx, "Time Attack")
 
-    @commands.command()
+    @commands.command(aliases=["ss", "screenshotter"])
     @commands.check(checks.chan_assignment)
     async def ss(self, ctx):
         await self._work(ctx, "Screenshotter")
 
-    @commands.command()
+    @commands.command(aliases=["mm", "matchmaking"])
     @commands.check(checks.chan_assignment)
     async def matchmaking(self, ctx):
         await self._work(ctx, "Matchmaking")
