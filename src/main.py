@@ -9,7 +9,7 @@ if __name__ == "__main__":
     cmd_parser.add_argument('--debug', action='store_true', help="Enable debug logging")
     cmd_parser.add_argument('--token', default=None, help="Discord bot token to run with")
 
-    args = cmd_parser.parsec_args()
+    args = cmd_parser.parse_args()
 
     # Initialise logging
     logger = utilities.init_logging(args.debug)
