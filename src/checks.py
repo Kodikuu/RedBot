@@ -11,11 +11,11 @@ def chan_staff(ctx):
 
 
 def chan_commands(ctx):
-    return chan(ctx, "bot_commands")
+    return chan(ctx, "bot-commands")
 
 
 def chan_assignment(ctx):
-    return chan(ctx, "role_assignment")
+    return chan(ctx, "role-assignment")
 
 
 def chan_log(ctx):

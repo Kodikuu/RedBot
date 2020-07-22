@@ -22,7 +22,7 @@ class DiscordCog(commands.Cog, name="Misc"):
 
     @commands.command(description="Rolls dice, giving the total and individual results.", usage="AdB")
     @commands.check(checks.chan_commands)
-    async def roll(self, ctx, args):
+    async def roll(self, ctx, args=""):
         dice = args.split("d")
         if len(dice) != 2:
             await ctx.send(f"'{args}'' doesn't look like a dice roll to me...'")
