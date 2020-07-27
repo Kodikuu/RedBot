@@ -1,8 +1,8 @@
 install:
-	pip install -r requirements.txt
+	pip3 install -r requirements.txt
 
 run:
-	python src/main.py --token ${token}
+	python3 src/main.py --token ${token}
 
 debug:
-	python src/main.py --token ${token} --debug
+	python3 src/main.py --token ${token} --debug
