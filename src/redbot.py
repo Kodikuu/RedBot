@@ -50,7 +50,8 @@ def init(prefix=COMMAND_PREFIX,
         for activity in member.activities:
             if activity.name is None:
                 continue
-            if is_playing := "redout" in activity.name.lower():
+            is_playing = "redout" in activity.name.lower()
+            if is_playing:
                 break
 
         role = await utilities.get_role_by_name(member, "Playing Redout")
