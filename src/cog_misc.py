@@ -29,7 +29,8 @@ class DiscordCog(commands.Cog, name="Misc"):
                    "d": "I don't want the d...",
                    "a": "B, C, D, E, F... Wait, this isn't preschool!", }
 
-        if secret := args.lower() in secrets:
+        secret = args.lower()
+        if secret in secrets:
             await ctx.send(secrets[secret])
 
         elif len(dice) != 2:
