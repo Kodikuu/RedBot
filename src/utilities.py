@@ -16,7 +16,8 @@ def env(key, default=None):
 
 
 async def get_role_by_name(ctx, name):
-	if role := utils.find(lambda m: m.name == name, ctx.guild.roles):
+	role = utils.find(lambda m: m.name == name, ctx.guild.roles)
+	if role:
 		return role
 	else:
 		raise AttributeError(f"Role '{name}' could not be found.")
