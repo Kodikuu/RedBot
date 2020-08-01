@@ -32,5 +32,4 @@ class DiscordCog(Cog, name="Bartender"):
             await asyncio.sleep(timeto)  # Wait until event
             await self.channel.send("@here The Weekly Wall-Grind has begun!")
 
-            await asyncio.sleep(timeto)  # Close up the spacebar at 10pm EST, 2am UTC
-            await self.channel.send("Happy hour is over")
+            await asyncio.sleep(60)  # Don't accidentally double-trigger
